@@ -22,15 +22,20 @@ export default function MealsPage() {
   }, [search]);
 
   return (
-    <div className="grid grid-cols-4 gap-4 ">
-      {meals?.map((singleMeal)=>{
-        return (
+    <div>
+      <div className=" text-center">
+        <input className="text-black bg-amber-50" value={search} onChange={(e) => setSearch(e.target.value)} />
+      </div>
+      <div className="grid grid-cols-4 gap-4 ">
+        {meals?.map((singleMeal) => {
+          return (
             <div key={singleMeal.idMeal} className="border border-slate-50">
-                <p>{singleMeal?.strMeal}</p>
-                <p>{singleMeal?.strInstructions}</p>
+              <p>{singleMeal?.strMeal}</p>
+              <p>{singleMeal?.strInstructions}</p>
             </div>
-        )
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
