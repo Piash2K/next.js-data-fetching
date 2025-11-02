@@ -8,6 +8,7 @@ const data = await dbConnect("practice_data").find({}).toArray()
 export async function POST(req) {
     console.log(req)
   const postedData = await req.json();
+  const result = await dbConnect("practice_data").insertOne(postedData)
 
-  return Response.json({ postedData });
+  return Response.json(result);
 }
