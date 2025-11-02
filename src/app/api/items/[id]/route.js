@@ -12,8 +12,10 @@ export async function GET(req, { params }) {
 export async function DELETE(req, { params }) {
   const { id } = await params;
   console.log(id);
-
-  return Response.json({ id });
+  const response= await dbConnect("practice_data").deleteOne({
+    _id: new ObjectId(id),
+  });
+  return Response.json(response);
 }
 export async function PATCH(req, { params }) {
   const { id } = await params;
